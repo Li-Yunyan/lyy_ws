@@ -1,0 +1,11 @@
+serial_param:
+  
+  left_serial_port: /dev/ttyS0    #左轮串口号
+  left_serial_baud: 57600        #115200        #左轮波特率
+  right_serial_port: /dev/ttyS1   #右轮串口号
+  right_serial_baud: 57600        #115200         #右轮波特率
+
+
+motor_model: 1       #电机模式 0,1:速度模式,2,3
+enable_motor: 1      #电机使能
+SGAT: 0.1            #控制采样时间

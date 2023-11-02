@@ -1,0 +1,43 @@
+<launch>
+
+    <arg name="joy_dev" default="/dev/input/js0" />
+    <!-- <arg name="param_base_controller" default="$(find base_controller)/param/param_base_controller.yaml"/> -->
+    
+
+    <!-- <node pkg="base_controller" type="base_controller" name="base_controller" output="screen" args="$(arg param_base_controller)">
+        <rosparam file="$(find base_controller)/param/wheel_serial_param.yaml"/>
+    </node>
+    
+    <node pkg="manual_controller" type="manual_controller" name="manual_controller"  >
+        <param name="linear_x_radio" value="0.5"/>
+        <param name="angular_z_radio" value="0.3"/>
+        <param name="linear_x_speed_up_radio" value="10"/>
+        <param name="linear_x_speed_up_max" value="0.01"/>
+        <param name="angular_z_speed_up_radio" value="2"/>
+        <param name="angular_z_speed_up_max" value="0.01"/>
+    </node> -->
+
+    <node pkg="joy" type="joy_node" name="joy_node">
+        <param name="dev" value="$(arg joy_dev)" />
+        <param name="deadzone" value="0.3" />
+        <param name="autorepeat_rate" value="10" />
+    </node>
+
+    <param name="enable_motor" value="1"/>
+    <param name="controller_model" value="1"/>
+    <param name="is_auto_model" value="0"/>
+
+    <include file="/home/takan/catkin_ws/src/ydlidar/launch/lidar.launch" />
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping"/>
+
+  <node pkg="tf" type="static_transform_publisher" name="base_sensor0"
+    args="0 0 0 0 0 0 /odom /base_footprint 100" />
+  <node pkg="tf" type="static_transform_publisher" name="base_sensor1"
+    args="0 0 0 0 0 0 /base_footprint /base_link 100" />
+  <node pkg="tf" type="static_transform_publisher" name="laser_link"
+    args="0.0 0.0 0.34 0.0 0.0  0 /base_link /laser 40" />
+  <node pkg="tf" type="static_transform_publisher" name="base_sensor2"
+    args="-0.5 0.0 0.7 0  0  0 /base_link /camera_link 100"/>
+  
+ 
+</launch>

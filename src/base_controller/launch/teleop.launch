@@ -1,0 +1,26 @@
+<launch>
+    <node pkg="turtlesim" type="turtlesim_node" name="sim"/>
+    <node pkg="turtlesim"  type="turtle_teleop_key" name="teleop" output="screen"/>
+    <!--<node pkg="key_teleop" type="key_teleop_test"   name="teleop_transfer" output="screen"/>-->
+
+    <!-- wpb_home core-->
+    <!--<node pkg="base_controller" type="base_controller" name="base_controller" output="screen">
+      <param name="serial_port" type="string" value="/dev/ftdi"/> 
+      <rosparam file="$(find wpb_home_bringup)/config/wpb_home.yaml" command="load" />
+    </node>-->
+    <arg name="param_base_controller" default="$(find base_controller)/param/param_base_controller.yaml"/> -->
+    <node pkg="base_controller" type="base_controller" name="base_controller" output="screen" args="$(arg param_base_controller)">
+      <rosparam file="$(find base_controller)/param/wheel_serial_param.yaml"/>
+    </node>
+    <!--<node pkg="manual_controller" type="manual_controller" name="manual_controller" output="screen" >
+        <param name="linear_x_radio" value="0.5"/>
+        <param name="angular_z_radio" value="0.3"/>
+        <param name="linear_x_speed_up_radio" value="10"/>
+        <param name="linear_x_speed_up_max" value="0.01"/>
+        <param name="angular_z_speed_up_radio" value="2"/>
+        <param name="angular_z_speed_up_max" value="0.01"/>
+    </node>-->
+     <param name="enable_motor" value="1"/>
+    <param name="controller_model" value="1"/>
+    <param name="is_auto_model" value="0"/>
+</launch>
