@@ -490,6 +490,7 @@ int main(int argc, char **argv) {
     getwheelstate(rec_buffer_left, rec_buffer_right, ws);                 //调用getwheelstate函数
     // ROS_INFO("%s",);
       // ROS_INFO("11");
+      
     for (int i = 0; i < 32; ++i) {
       rec_buffer_left[i] = 0;
       rec_buffer_right[i] = 0;
