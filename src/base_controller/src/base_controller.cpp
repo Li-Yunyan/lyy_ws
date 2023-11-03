@@ -171,7 +171,7 @@ void getwheelstate(unsigned char rec_buffer_left[32],
                    unsigned char rec_buffer_right[32], wheelstate &ws) {
 
   if (rec_buffer_left[12] == 0xe4 && rec_buffer_right[12] == 0xe4) {     //输出转速
-    ROS_INFO("left:%x,%x,right:%x,%x",rec_buffer_left[13],rec_buffer_left[14],rec_buffer_right[13],rec_buffer_right[14]);
+    // ROS_INFO("left:%x,%x,right:%x,%x",rec_buffer_left[13],rec_buffer_left[14],rec_buffer_right[13],rec_buffer_right[14]);
     int left = 0x00;
     int a = (rec_buffer_left[13] >= 0xf0) ? -1 : 1;                      //不等式成立将a赋值为-1
     // ROS_INFO("a:%d",a);
@@ -187,7 +187,7 @@ void getwheelstate(unsigned char rec_buffer_left[32],
     right += int(rec_buffer_right[13]);
     right = right << 8;
     right += int(rec_buffer_right[14]);
-    ROS_INFO("left:%x,right:%x",left,right);
+    // ROS_INFO("left:%x,right:%x",left,right);
     if (b == -1) {
       right = 0x00ffff - right;
     }
@@ -489,7 +489,7 @@ int main(int argc, char **argv) {
     // ROS_INFO("%f ", (begin-end).toSec ());
     getwheelstate(rec_buffer_left, rec_buffer_right, ws);                 //调用getwheelstate函数
     // ROS_INFO("%s",);
-      ROS_INFO("11");
+      // ROS_INFO("11");
     for (int i = 0; i < 32; ++i) {
       rec_buffer_left[i] = 0;
       rec_buffer_right[i] = 0;

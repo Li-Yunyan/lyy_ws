@@ -1,0 +1,2 @@
+base_controller:openslam_gmapping:serial:slam_gmapping/gmapping:slam_gmapping/slam_gmapping:ydlidar_ros_driver
+-DCATKIN_DEVEL_PREFIX=/home/john/lyy_ws/devel -DCMAKE_INSTALL_PREFIX=/home/john/lyy_ws/install -G Unix Makefiles

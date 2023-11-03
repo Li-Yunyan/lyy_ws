@@ -1,0 +1,8 @@
+prefix=/home/john/lyy_ws/install
+
+Name: base_controller
+Description: Description of base_controller
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

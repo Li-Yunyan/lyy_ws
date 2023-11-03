@@ -1,0 +1,19 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/opt/ros/kinetic/include/**",
+        "/home/john/WorkSpace/hm_ws/src/base_controller/include/**",
+        "/home/john/WorkSpace/hm_ws/src/manual_controller/include/**",
+        "/home/john/WorkSpace/hm_ws/src/serial/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}
